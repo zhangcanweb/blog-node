@@ -5,11 +5,11 @@ const querystring = require('querystring')
 const getPostData = (req) => {
   return new Promise((resolve, reject) => {
     if (req.method !== 'POST') {
-      resolve({b:2})
+      resolve({})
       return
     }
     if (req.headers['content-type'] !=='application/json') {
-      resolve({a: 1})
+      resolve({})
       return
     }
     let postData = ''
@@ -18,7 +18,7 @@ const getPostData = (req) => {
     })
     req.on('end', () => {
       if (!postData) {
-        resolve({c:3})
+        resolve({})
         return
       } else {
         resolve(
